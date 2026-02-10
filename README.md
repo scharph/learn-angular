@@ -1,59 +1,38 @@
 # LearnAngular
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 21.1.3.
+ng new learn-angular --no-create-application
 
-## Development server
+## Shared Library
+ng generate library shared
 
-To start a local development server, run:
+tsconfig.json
 
-```bash
-ng serve
-```
+"paths": {
+  "@corp/ui-kit": [
+    "projects/ui-kit/src/public-api.ts"
+  ]
+}
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+## 
+ng generate application 01-basic
+ng g c button --project shared
 
-## Code scaffolding
+## property vs signal property
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+    1. Die normale Property (const x = 12)
+    Bei herkömmlichen Variablen ist Angular "blind" für Änderungen am Wert selbst.
 
-```bash
-ng generate component component-name
-```
+    Reaktivität: Angular nutzt standardmäßig Zone.js, um das gesamte Komponenten-Diagramm bei jedem Event (Klick, HTTP-Request, Timer) von oben nach unten zu prüfen (Change Detection).
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+    Prüfung: Angular vergleicht den alten Wert mit dem neuen Wert. Wenn du this.x = 13 setzt, bemerkt Angular das erst beim nächsten globalen Durchlauf.
 
-```bash
-ng generate --help
-```
+    Performance: Bei großen Apps führt dies zu vielen unnötigen Prüfungen, auch wenn sich in einer Komponente gar nichts geändert hat.
 
-## Building
+    2. Das Signal (const x = signal(12))
+    Ein Signal ist ein "beobachtbarer" Container für einen Wert. Es informiert Angular aktiv, wenn sich etwas ändert.
 
-To build the project run:
+    Reaktivität: Signale sind granular. Angular weiß exakt, an welcher Stelle im Template der Wert x verwendet wird.
 
-```bash
-ng build
-```
+    Push-Modell: Wenn du x.set(13) aufrufst, "benachrichtigt" das Signal die betroffenen Stellen im UI direkt.
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Vitest](https://vitest.dev/) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+    Performance: Angular muss nicht mehr den gesamten Komponentenbaum absuchen. Das ermöglicht eine extrem effiziente Change Detection (Stichwort: Zoneless Angular).

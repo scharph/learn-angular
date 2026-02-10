@@ -3,6 +3,11 @@
 {
   "compileOnSave": false,
   "compilerOptions": {
+    "paths": {
+      "shared": [
+        "./projects/shared/src/public-api.ts"
+      ]
+    },
     "strict": true,
     "noImplicitOverride": true,
     "noPropertyAccessFromIndexSignature": true,
@@ -21,5 +26,32 @@
     "strictInputAccessModifiers": true,
     "strictTemplates": true
   },
-  "files": []
+  "files": [],
+  "references": [
+    {
+      "path": "./projects/learn-angular/ui-kit/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/learn-angular/ui-kit/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/shared/tsconfig.lib.json"
+    },
+    {
+      "path": "./projects/shared/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/01-basic/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/01-basic/tsconfig.spec.json"
+    },
+    {
+      "path": "./projects/02-signals/tsconfig.app.json"
+    },
+    {
+      "path": "./projects/02-signals/tsconfig.spec.json"
+    }
+  ],
+  
 }
