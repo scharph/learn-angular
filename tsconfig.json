@@ -4,7 +4,7 @@
   "compileOnSave": false,
   "compilerOptions": {
     "paths": {
-      "shared": [
+      "@la.shared": [
         "./projects/shared/src/public-api.ts"
       ]
     },
@@ -29,28 +29,16 @@
   "files": [],
   "references": [
     {
-      "path": "./projects/learn-angular/ui-kit/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/learn-angular/ui-kit/tsconfig.spec.json"
-    },
-    {
       "path": "./projects/shared/tsconfig.lib.json"
-    },
-    {
-      "path": "./projects/shared/tsconfig.spec.json"
     },
     {
       "path": "./projects/01-basic/tsconfig.app.json"
     },
     {
-      "path": "./projects/01-basic/tsconfig.spec.json"
-    },
-    {
       "path": "./projects/02-signals/tsconfig.app.json"
     },
     {
-      "path": "./projects/02-signals/tsconfig.spec.json"
+      "path": "./projects/03-components/tsconfig.app.json"
     }
   ],
   
