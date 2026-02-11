@@ -6,9 +6,10 @@ Generate a minimal project without any testing frameworks. This is intended for 
 
 ## TODO
 - 04-services
-- 05-rxjs
+- 05-directives
 - 06-routes
-- 07-resources (https://www.catfacts.net/)
+- 07-rxjs
+- 08-resources (https://www.catfacts.net/)
 - 0X-unit-tests
 - 0X-e2e-tests
 
