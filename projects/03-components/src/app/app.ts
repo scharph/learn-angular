@@ -1,13 +1,12 @@
 import { Component, signal } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
+import { FirstComponent } from './first-component/first-component';
 
 @Component({
   selector: 'app-root',
-  imports: [RouterOutlet],
+  imports: [FirstComponent],
   template: `
     <h1>Hello, {{ title() }}</h1>
-
-    <router-outlet />
+    <app-first-component></app-first-component>
   `,
   styles: [],
 })
